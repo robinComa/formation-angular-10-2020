@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Film } from '../shared/film';
+import { FilmService } from '../shared/film.service';
 
 @Component({
   selector: 'app-film-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmListComponent implements OnInit {
 
-  constructor() { }
+  films: Film[];
+
+  constructor(private filmService: FilmService) { }
 
   ngOnInit(): void {
+    this.films = this.filmService.findAll();
+    console.log(this.films);
   }
 
 }
