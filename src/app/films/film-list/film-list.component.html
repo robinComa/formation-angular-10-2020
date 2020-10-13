@@ -2,6 +2,6 @@
 
 <ul>
   <li *ngFor="let film of films" appFirstWordBold>
-    {{film.titre}}
+    {{film.sortie | date}} : {{film.titre}}
   </li>
 </ul>

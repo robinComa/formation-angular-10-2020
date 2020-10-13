@@ -15,7 +15,6 @@ export class FilmListComponent implements OnInit {
 
   ngOnInit(): void {
     this.films = this.filmService.findAll();
-    console.log(this.films);
   }
 
 }
