@@ -5,7 +5,6 @@ import { registerLocaleData } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FilmsModule } from './films/films.module';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -15,9 +14,8 @@ registerLocaleData(localeFr, 'fr');
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FilmsModule
-    ],
+    AppRoutingModule
+  ],
   providers: [{
     provide: LOCALE_ID,
     useValue: 'fr-FR'

@@ -9,13 +9,15 @@ import { FirstWordBoldDirective } from './shared/first-word-bold.directive';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { FilmItemComponent } from './film-list/film-item/film-item.component';
 import { HttpTimeInterceptor } from './shared/http-time.interceptor';
+import { FilmsRoutingModule } from './films-routing.module';
 
 @NgModule({
   declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent],
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    FilmsRoutingModule
   ],
   exports: [FilmComponent, FilmListComponent],
   providers: [
