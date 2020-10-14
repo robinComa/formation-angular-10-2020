@@ -14,12 +14,13 @@ export class FilmListComponent implements OnInit {
   constructor(private filmService: FilmService) { }
 
   ngOnInit(): void {
-    this.films = this.filmService.findAll();
+    this.filmService.findAll().subscribe((films: Film[]) => this.films = films);
   }
 
   delete(film: Film): void {
-    this.filmService.delete(film);
-    this.films = this.filmService.findAll();
+    this.filmService.delete(film).subscribe(() => {
+      this.filmService.findAll().subscribe((films: Film[]) => this.films = films);
+    });
   }
 
 }
