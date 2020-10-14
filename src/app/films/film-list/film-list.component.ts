@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Film } from '../shared/film';
 import { FilmService } from '../shared/film.service';
 
@@ -11,10 +12,10 @@ export class FilmListComponent implements OnInit {
 
   films: Film[];
 
-  constructor(private filmService: FilmService) { }
+  constructor(private filmService: FilmService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.filmService.findAll().subscribe((films: Film[]) => this.films = films);
+    this.films = this.activatedRoute.snapshot.data.films;
   }
 
   delete(film: Film): void {

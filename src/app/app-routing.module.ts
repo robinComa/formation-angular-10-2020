@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FilmsModule } from './films/films.module';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [{
+  path: '',
+  component: HomeComponent
+}, {
   path: 'films',
-  loadChildren: () => FilmsModule
+  loadChildren: () => import('./films/films.module').then((m) => m.FilmsModule)
 }, {
   path: '**',
-  redirectTo: 'films'
+  redirectTo: ''
 }];
 
 @NgModule({

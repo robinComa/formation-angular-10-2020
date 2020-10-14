@@ -10,6 +10,7 @@ import { TruncatePipe } from './shared/truncate.pipe';
 import { FilmItemComponent } from './film-list/film-item/film-item.component';
 import { HttpTimeInterceptor } from './shared/http-time.interceptor';
 import { FilmsRoutingModule } from './films-routing.module';
+import { FilmsResolverService } from './shared/films-resolver.service';
 
 @NgModule({
   declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent],
@@ -22,6 +23,7 @@ import { FilmsRoutingModule } from './films-routing.module';
   exports: [FilmComponent, FilmListComponent],
   providers: [
     FilmService,
+    FilmsResolverService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpTimeInterceptor,
