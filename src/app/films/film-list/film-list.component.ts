@@ -17,4 +17,9 @@ export class FilmListComponent implements OnInit {
     this.films = this.filmService.findAll();
   }
 
+  delete(film: Film): void {
+    this.filmService.delete(film);
+    this.films = this.filmService.findAll();
+  }
+
 }

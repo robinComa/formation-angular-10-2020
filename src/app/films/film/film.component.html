@@ -1,3 +1,4 @@
 <h1>{{ film.titre }}</h1>
 <img width="100px" [src]="film.image"/>
-<p>{{ film.description }}</p>
+<p>{{film.sortie | date:'MMMM yyyy'}}</p>
+<p>{{ film.description | truncate:20 }}</p>

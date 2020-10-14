@@ -5,9 +5,10 @@ import { FilmListComponent } from './film-list/film-list.component';
 import { FilmService } from './shared/film.service';
 import { FirstWordBoldDirective } from './shared/first-word-bold.directive';
 import { TruncatePipe } from './shared/truncate.pipe';
+import { FilmItemComponent } from './film-list/film-item/film-item.component';
 
 @NgModule({
-  declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe],
+  declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent],
   imports: [
     CommonModule
   ],

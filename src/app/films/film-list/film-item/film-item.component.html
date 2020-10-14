@@ -1,0 +1,4 @@
+<img width="30px" [src]="film.image"/>
+<h3>{{film.titre}}</h3>
+<p>{{film.description | truncate: 10}}</p>
+<button (click)="delete()">Supprimer</button>

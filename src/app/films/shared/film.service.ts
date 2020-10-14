@@ -25,7 +25,7 @@ export class FilmService {
   }
 
   get(id: number): Film {
-    return FILMS.find((film: Film) => film.id === id);
+    return FILMS.find((f: Film) => f.id === id);
   }
 
   create(film: Film): Film {
@@ -37,6 +37,7 @@ export class FilmService {
   }
 
   delete(film: Film): void {
-
+    const index = FILMS.findIndex(f => f.id === film.id);
+    FILMS.splice(index, 1);
   }
 }

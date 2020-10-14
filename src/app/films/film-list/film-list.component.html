@@ -2,6 +2,6 @@
 
 <ul>
   <li *ngFor="let f of films">
-    <app-film [film]="f"></app-film>
+    <app-film-item [film]="f" (deleteEvent)="delete($event)"></app-film-item>
   </li>
 </ul>
