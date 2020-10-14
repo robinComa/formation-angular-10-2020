@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { FilmComponent } from './film/film.component';
 import { FilmListComponent } from './film-list/film-list.component';
 import { FilmService } from './shared/film.service';
@@ -13,7 +14,8 @@ import { HttpTimeInterceptor } from './shared/http-time.interceptor';
   declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [FilmComponent, FilmListComponent],
   providers: [

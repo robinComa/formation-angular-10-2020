@@ -1,4 +1,5 @@
-<h1>{{ film.titre }}</h1>
-<img width="100px" [src]="film.image"/>
-<p>{{film.sortie | date:'MMMM yyyy'}}</p>
-<p>{{ film.description | truncate:20 }}</p>
+<h1>{{ film?.titre }}</h1>
+<a [routerLink]="['..', 2]">Film 2</a>
+<img width="100px" [src]="film?.image"/>
+<p>{{film?.sortie | date:'MMMM yyyy'}}</p>
+<p>{{ film?.description }}</p>

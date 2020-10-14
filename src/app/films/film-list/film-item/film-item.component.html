@@ -1,4 +1,5 @@
 <img width="30px" [src]="film.image"/>
 <h3>{{film.titre}}</h3>
 <p>{{film.description | truncate: 10}}</p>
+<a [routerLink]="film.id">Voir</a>
 <button (click)="delete()">Supprimer</button>
