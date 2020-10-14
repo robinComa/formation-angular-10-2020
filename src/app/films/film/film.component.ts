@@ -20,7 +20,7 @@ export class FilmComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRouteSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       const id = +params.id;
-      this.filmService.get(id).subscribe((film: Film) => this.film = film)
+      this.filmService.get(id).subscribe((film: Film) => this.film = film);
     });
   }
 
