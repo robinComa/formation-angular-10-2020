@@ -1,7 +1,7 @@
 <h2>Liste des films</h2>
 
 <ul>
-  <li *ngFor="let film of films" appFirstWordBold>
-    {{film.sortie | date}} : {{film.titre}}
+  <li *ngFor="let f of films">
+    <app-film [film]="f"></app-film>
   </li>
 </ul>
