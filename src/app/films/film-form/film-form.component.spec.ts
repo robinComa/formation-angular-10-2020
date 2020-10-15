@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FilmService } from '../shared/film.service';
+import { FormCheckGuard } from '../shared/form-check.guard';
 
 import { FilmFormComponent } from './film-form.component';
 
@@ -8,7 +12,9 @@ describe('FilmFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilmFormComponent ]
+      providers: [FilmService, FormCheckGuard],
+      declarations: [ FilmFormComponent ],
+      imports: [RouterTestingModule, HttpClientTestingModule]
     })
     .compileComponents();
   });

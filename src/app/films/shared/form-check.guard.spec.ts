@@ -6,7 +6,9 @@ describe('FormCheckGuard', () => {
   let guard: FormCheckGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [FormCheckGuard]
+    });
     guard = TestBed.inject(FormCheckGuard);
   });
 
