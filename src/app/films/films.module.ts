@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FilmComponent } from './film/film.component';
 import { FilmListComponent } from './film-list/film-list.component';
@@ -23,7 +23,8 @@ import { FormCheckGuard } from './shared/form-check.guard';
     HttpClientModule,
     RouterModule,
     FilmsRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [FilmComponent, FilmListComponent],
   providers: [

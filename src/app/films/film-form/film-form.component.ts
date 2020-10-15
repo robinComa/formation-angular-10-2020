@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Film } from '../shared/film';
 import { FilmService } from '../shared/film.service';
@@ -11,7 +12,7 @@ import { FormCheckGuard } from '../shared/form-check.guard';
 })
 export class FilmFormComponent implements OnInit {
 
-  film: Film;
+  filmForm: FormGroup;
 
   constructor(private filmService: FilmService, private router: Router, private formCheckGuard: FormCheckGuard) { }
 
@@ -21,19 +22,25 @@ export class FilmFormComponent implements OnInit {
   }
 
   submit(): void {
-    this.filmService.create(this.film).subscribe(() => {
+    const film: Film = this.filmForm.value;
+    this.filmService.create(film).subscribe(() => {
       this.formCheckGuard.setFormComplete(true);
       this.router.navigate(['films']);
     });
   }
 
-  private initForm(): void {
-    this.film = {
-      titre: '',
-      description: '',
-      sortie: null,
-      image: ''
-    };
+  private initForm(film: Film = {
+    titre: '',
+    description: '',
+    sortie: null,
+    image: ''
+  }): void {
+    this.filmForm = new FormGroup({
+      titre: new FormControl(film.titre, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      description: new FormControl(film.description, [Validators.required, Validators.minLength(10), Validators.maxLength(200)]),
+      sortie: new FormControl(film.sortie, [Validators.required]),
+      image: new FormControl(film.image, [Validators.required])
+    });
   }
 
 }
