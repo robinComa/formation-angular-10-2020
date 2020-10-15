@@ -1,0 +1,20 @@
+<form #filmForm="ngForm" (submit)="submit()">
+
+  <input type="text" placeholder="Titre" name="titre" [(ngModel)]="film.titre" required minlength="3" maxlength="20" #titre="ngModel"/>
+  <p *ngIf="titre.errors?.required">Ce champ est obligatoire</p>
+  <p *ngIf="titre.errors?.minlength">Ce champ doit avoir au moins 3 caractères</p>
+  <p *ngIf="titre.errors?.maxlength">Ce champ doit avoir au plus 20 caractères</p>
+
+  <input type="url" placeholder="Couverture" name="image" [(ngModel)]="film.image" required #image="ngModel"/>
+  <p *ngIf="image.errors?.required">Ce champ est obligatoire</p>
+
+  <input type="text" placeholder="Description" name="description" [(ngModel)]="film.description" required minlength="10" maxlength="200" #description="ngModel"/>
+  <p *ngIf="description.errors?.required">Ce champ est obligatoire</p>
+  <p *ngIf="description.errors?.minlength">Ce champ doit avoir au moins 10 caractères</p>
+  <p *ngIf="description.errors?.maxlength">Ce champ doit avoir au plus 200 caractères</p>
+
+  <input type="number" placeholder="Sortie" name="sortie" [(ngModel)]="film.sortie" required #sortie="ngModel"/>
+  <p *ngIf="sortie.errors?.required">Ce champ est obligatoire</p>
+
+  <button type="submit" [disabled]="!filmForm.valid">Sauver</button>
+</form>

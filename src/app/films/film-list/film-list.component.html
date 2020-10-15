@@ -1,5 +1,7 @@
 <h2>Liste des films</h2>
 
+<a routerLink="form">Créer un film</a>
+
 <ul>
   <li *ngFor="let f of films">
     <app-film-item [film]="f" (deleteEvent)="delete($event)"></app-film-item>

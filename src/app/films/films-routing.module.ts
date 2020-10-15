@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FilmFormComponent } from './film-form/film-form.component';
 import { FilmListComponent } from './film-list/film-list.component';
 import { FilmComponent } from './film/film.component';
 import { FilmsResolverService } from './shared/films-resolver.service';
@@ -10,6 +11,9 @@ const routes: Routes = [{
   resolve: {
     films: FilmsResolverService
   }
+}, {
+  path: 'form',
+  component: FilmFormComponent
 }, {
   path: ':id',
   component: FilmComponent
