@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Film } from './film';
 
 @Injectable()
 export class FilmService {
 
-  private endpoint = 'http://localhost:3000/films';
+  private endpoint = `${environment.api}/films`;
 
   constructor(private httpClient: HttpClient) { }
 

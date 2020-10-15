@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --base-href /app/dist/app/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve:api": "json-server --watch db.json"
+    "serve:api": "json-server --watch db.json",
+    "serve:api:prod": "json-server --watch db.json --port 3001"
   },
   "private": true,
   "dependencies": {
