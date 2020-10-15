@@ -14,6 +14,7 @@ import { HttpTimeInterceptor } from './shared/http-time.interceptor';
 import { FilmsRoutingModule } from './films-routing.module';
 import { FilmsResolverService } from './shared/films-resolver.service';
 import { FilmFormComponent } from './film-form/film-form.component';
+import { FormCheckGuard } from './shared/form-check.guard';
 
 @NgModule({
   declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent, FilmFormComponent],
@@ -28,6 +29,7 @@ import { FilmFormComponent } from './film-form/film-form.component';
   providers: [
     FilmService,
     FilmsResolverService,
+    FormCheckGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpTimeInterceptor,

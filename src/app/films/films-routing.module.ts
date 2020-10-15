@@ -4,6 +4,7 @@ import { FilmFormComponent } from './film-form/film-form.component';
 import { FilmListComponent } from './film-list/film-list.component';
 import { FilmComponent } from './film/film.component';
 import { FilmsResolverService } from './shared/films-resolver.service';
+import { FormCheckGuard } from './shared/form-check.guard';
 
 const routes: Routes = [{
   path: '',
@@ -13,7 +14,8 @@ const routes: Routes = [{
   }
 }, {
   path: 'form',
-  component: FilmFormComponent
+  component: FilmFormComponent,
+  canDeactivate: [FormCheckGuard]
 }, {
   path: ':id',
   component: FilmComponent
