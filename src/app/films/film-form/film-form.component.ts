@@ -31,10 +31,21 @@ export class FilmFormComponent implements OnInit {
 
   submit(): void {
     const film: Film = this.filmForm.value;
-    this.filmService.create(film).subscribe(() => {
-      this.formCheckGuard.setFormComplete(true);
-      this.router.navigate(['films']);
-    });
+    if (this.isUpdate()) {
+      this.filmService.update(film).subscribe(() => {
+        this.formCheckGuard.setFormComplete(true);
+        this.router.navigate(['films', film.id]);
+      });
+    } else {
+      this.filmService.create(film).subscribe((newFilm: Film) => {
+        this.formCheckGuard.setFormComplete(true);
+        this.router.navigate(['films', newFilm.id]);
+      });
+    }
+  }
+
+  private isUpdate(): boolean {
+    return !!this.filmForm.value.id;
   }
 
   private initForm(film: Film = {
@@ -45,6 +56,7 @@ export class FilmFormComponent implements OnInit {
   }): void {
     this.formCheckGuard.setFormComplete(false);
     this.filmForm = new FormGroup({
+      id: new FormControl(film.id),
       titre: new FormControl(film.titre, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       description: new FormControl(film.description, [Validators.required, Validators.minLength(10), Validators.maxLength(1000)]),
       sortie: new FormControl(film.sortie, [Validators.required]),
