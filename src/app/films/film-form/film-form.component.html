@@ -2,16 +2,16 @@
 
   <input type="text" placeholder="Titre" name="titre" formControlName="titre"/>
   <p *ngIf="filmForm.get('titre').errors?.required">Ce champ est obligatoire</p>
-  <p *ngIf="filmForm.get('titre').errors?.minlength">Ce champ doit avoir au moins 3 caractères</p>
-  <p *ngIf="filmForm.get('titre').errors?.maxlength">Ce champ doit avoir au plus 20 caractères</p>
+  <p *ngIf="filmForm.get('titre').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('titre').errors?.minlength.requiredLength}} caractères</p>
+  <p *ngIf="filmForm.get('titre').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('titre').errors?.maxlength.requiredLength}} caractères</p>
 
   <input type="url" placeholder="Couverture" name="image" formControlName="image"/>
   <p *ngIf="filmForm.get('image').errors?.required">Ce champ est obligatoire</p>
 
   <input type="text" placeholder="Description" name="description" formControlName="description"/>
   <p *ngIf="filmForm.get('description').errors?.required">Ce champ est obligatoire</p>
-  <p *ngIf="filmForm.get('description').errors?.minlength">Ce champ doit avoir au moins 10 caractères</p>
-  <p *ngIf="filmForm.get('description').errors?.maxlength">Ce champ doit avoir au plus 200 caractères</p>
+  <p *ngIf="filmForm.get('description').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('description').errors?.minlength.requiredLength}} caractères</p>
+  <p *ngIf="filmForm.get('description').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('description').errors?.maxlength.requiredLength}} caractères</p>
 
   <input type="number" placeholder="Sortie" name="sortie" formControlName="sortie"/>
   <p *ngIf="filmForm.get('sortie').errors?.required">Ce champ est obligatoire</p>

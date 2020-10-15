@@ -2,4 +2,5 @@
 <h3>{{film.titre}}</h3>
 <p>{{film.description | truncate: 10}}</p>
 <a [routerLink]="film.id">Voir</a>
+<a [routerLink]="['form', film.id]">Modifier</a>
 <button (click)="delete()">Supprimer</button>

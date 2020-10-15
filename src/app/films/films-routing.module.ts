@@ -14,8 +14,15 @@ const routes: Routes = [{
   }
 }, {
   path: 'form',
-  component: FilmFormComponent,
-  canDeactivate: [FormCheckGuard]
+  children: [{
+    path: '',
+    component: FilmFormComponent,
+    canDeactivate: [FormCheckGuard]
+  }, {
+    path: ':id',
+    component: FilmFormComponent,
+    canDeactivate: [FormCheckGuard]
+  }]
 }, {
   path: ':id',
   component: FilmComponent
