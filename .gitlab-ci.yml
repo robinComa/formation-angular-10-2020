@@ -10,6 +10,10 @@ lint:
   script:
     - npm ci --silent
     - npm run lint
+  only:
+    - branches
+  except:
+    - master
 
 unit:
   stage: test
@@ -17,6 +21,10 @@ unit:
   script:
     - npm ci --silent
     - npm run test
+    only:
+      - branches
+    except:
+      - master
 
 build:
   stage: build
