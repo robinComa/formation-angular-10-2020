@@ -7,13 +7,13 @@
  </button>
  <mat-menu #menu="matMenu">
   <a mat-menu-item [routerLink]="film.id">
-    Voir
+    {{ 'films.list.actions.show' | translate }}
   </a>
   <a mat-menu-item [routerLink]="['form', film.id]">
-    Modifer
+    {{ 'films.list.actions.update' | translate }}
   </a>
   <button mat-menu-item (click)="delete()">
-    Supprimer
+    {{ 'films.list.actions.delete' | translate }}
   </button>
 </mat-menu>
 </mat-list-item>

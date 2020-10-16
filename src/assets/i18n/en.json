@@ -1,0 +1,76 @@
+{
+  "navbar": {
+    "title": "Video library",
+    "languages": {
+      "fr": "French",
+      "en": "English"
+    }
+  },
+  "home": {
+    "action-list": {
+      "films": "My Movies"
+    }
+  },
+  "films": {
+    "list": {
+      "title": "My Movies",
+      "actions": {
+        "show": "Show",
+        "update": "Update",
+        "delete": "Delete"
+      }
+    },
+    "item": {
+      "subtitle": "Released on {{date}}"
+    },
+    "delete": {
+      "message": "{{titre}} is well deleted!"
+    },
+    "form": {
+      "message": "{{titre}} is well saved!",
+      "submit": "Save",
+      "fields": {
+        "title": {
+          "label": "Title",
+          "placeholder": "Ex : Avatar",
+          "errors": {
+            "required": "This field is mandatory",
+            "minlength": "This field must have at least {{size}} characters",
+            "maxlength": "This field must have at most {{size}} characters"
+          }
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Ex : Avatar is a movie ...",
+          "errors": {
+            "required": "This field is mandatory",
+            "minlength": "This field must have at least {{size}} characters",
+            "maxlength": "This field must have at most {{size}} characters"
+          }
+        },
+        "image": {
+          "label": "Image",
+          "placeholder": "Ex : http://www....com",
+          "errors": {
+            "required": "This field is mandatory"
+          }
+        },
+        "release": {
+          "label": "Released",
+          "placeholder": "Ex : 9/12/2020",
+          "errors": {
+            "required": "This field is mandatory"
+          }
+        }
+      },
+      "exit-dialog": {
+        "title": "Confirm",
+        "description": "Are you sure you want to leave this page?",
+        "actions": {
+          "no": "Cancel",
+          "yes": "Quit"
+        }
+      }
+    }
+  }
+}

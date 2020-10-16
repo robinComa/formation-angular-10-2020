@@ -18,9 +18,18 @@ import { FormCheckGuard } from './shared/form-check.guard';
 import { MaterialModule } from '../shared/material/material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ConfirmExitComponent } from './shared/confirm-exit/confirm-exit.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent, FilmFormComponent, ConfirmExitComponent],
+  declarations: [
+    FilmComponent,
+    FilmListComponent,
+    FirstWordBoldDirective,
+    TruncatePipe,
+    FilmItemComponent,
+    FilmFormComponent,
+    ConfirmExitComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -29,7 +38,8 @@ import { ConfirmExitComponent } from './shared/confirm-exit/confirm-exit.compone
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    TranslateModule.forChild()
   ],
   exports: [FilmComponent, FilmListComponent],
   providers: [

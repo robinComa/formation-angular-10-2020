@@ -1,0 +1,76 @@
+{
+  "navbar": {
+    "title": "Vidéothèque",
+    "languages": {
+      "fr": "Francais",
+      "en": "Anglais"
+    }
+  },
+  "home": {
+    "action-list": {
+      "films": "Mes Films"
+    }
+  },
+  "films": {
+    "list": {
+      "title": "Mes Films",
+      "actions": {
+        "show": "Voir",
+        "update": "Modifier",
+        "delete": "Supprimer"
+      }
+    },
+    "item": {
+      "subtitle": "Sortie en {{date}}"
+    },
+    "delete": {
+      "message": "{{titre}} bien supprimé !"
+    },
+    "form": {
+      "message": "{{titre}} bien sauvegardé !",
+      "submit": "Sauvegarder",
+      "fields": {
+        "title": {
+          "label": "Titre",
+          "placeholder": "Ex : OSS 177 rio ne répond plus",
+          "errors": {
+            "required": "Ce champ est obligatoire",
+            "minlength": "Ce champ doit avoir au moins {{size}} caractères",
+            "maxlength": "Ce champ doit avoir au plus {{size}} caractères"
+          }
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Ex : OSS 117 est un film francais ...",
+          "errors": {
+            "required": "Ce champ est obligatoire",
+            "minlength": "Ce champ doit avoir au moins {{size}} caractères",
+            "maxlength": "Ce champ doit avoir au plus {{size}} caractères"
+          }
+        },
+        "image": {
+          "label": "Image",
+          "placeholder": "Ex : http://www....com",
+          "errors": {
+            "required": "Ce champ est obligatoire"
+          }
+        },
+        "release": {
+          "label": "Sortie",
+          "placeholder": "Ex : 12/09/2020",
+          "errors": {
+            "required": "Ce champ est obligatoire"
+          }
+        }
+      },
+      "exit-dialog": {
+        "title": "Confirmation",
+        "description": "Etes vous sur de vouloir quitter cette page ?",
+        "actions": {
+          "no": "Annuler",
+          "yes": "Quitter"
+        }
+      }
+    }
+  }
+}

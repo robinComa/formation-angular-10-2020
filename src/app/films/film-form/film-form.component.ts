@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 import { Film } from '../shared/film';
 import { FilmService } from '../shared/film.service';
 import { FormCheckGuard } from '../shared/form-check.guard';
@@ -20,7 +22,8 @@ export class FilmFormComponent implements OnInit {
     private router: Router,
     private formCheckGuard: FormCheckGuard,
     private activatedRoute: ActivatedRoute,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +50,7 @@ export class FilmFormComponent implements OnInit {
   private afterSave(film: Film): void {
     this.formCheckGuard.setFormComplete(true);
     this.router.navigate(['films', film.id]);
-    this.snackBar.open('Film sauvegardé !', null, {
+    this.snackBar.open(this.translateService.instant('films.form.message', film), null, {
       duration: 2000,
     });
   }

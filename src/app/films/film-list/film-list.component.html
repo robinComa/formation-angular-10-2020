@@ -1,5 +1,7 @@
 <mat-list role="list">
-  <div mat-subheader>Liste des films</div>
+  <div mat-subheader>
+    {{ 'films.list.title' | translate }}
+  </div>
   <app-film-item *ngFor="let f of films" [film]="f" (deleteEvent)="delete($event)"></app-film-item>
 </mat-list>
 

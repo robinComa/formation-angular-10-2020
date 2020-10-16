@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 import { Film } from '../shared/film';
 import { FilmService } from '../shared/film.service';
 
@@ -16,7 +18,8 @@ export class FilmListComponent implements OnInit {
   constructor(
     private filmService: FilmService,
     private activatedRoute: ActivatedRoute,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +28,7 @@ export class FilmListComponent implements OnInit {
 
   delete(film: Film): void {
     this.filmService.delete(film).subscribe(() => {
-      this.snackBar.open('Film supprimé !', null, {
+      this.snackBar.open(this.translateService.instant('films.delete.message', film), null, {
         duration: 2000,
       });
       this.filmService.findAll().subscribe((films: Film[]) => this.films = films);

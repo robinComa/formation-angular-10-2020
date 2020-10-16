@@ -2,17 +2,17 @@
   <a mat-icon-button routerLink="/">
     <mat-icon>home</mat-icon>
   </a>
-  <span>Vidéothèque</span>
+  <span>{{ 'navbar.title' | translate }}</span>
   <span class="spacer"></span>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>language</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="setLanguage('fr')">
-      Francais
+      {{ 'navbar.languages.fr' | translate}}
     </button>
     <button mat-menu-item (click)="setLanguage('en')">
-      Anglais
+      {{ 'navbar.languages.en' | translate}}
     </button>
   </mat-menu>
 </mat-toolbar>

@@ -1,12 +1,16 @@
-<h2 mat-dialog-title>Confirmation</h2>
+<h2 mat-dialog-title>
+  {{ 'films.form.exit-dialog.title' | translate }}
+</h2>
 <mat-dialog-content class="mat-typography">
-  <p>Etes vous sur de vouloir quitter cette page ?</p>
+  <p>
+    {{ 'films.form.exit-dialog.description' | translate }}
+  </p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close="false">
-    Annuler
+    {{ 'films.form.exit-dialog.actions.no' | translate }}
   </button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
-    Quitter
+    {{ 'films.form.exit-dialog.actions.yes' | translate }}
   </button>
 </mat-dialog-actions>

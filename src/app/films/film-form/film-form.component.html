@@ -1,34 +1,50 @@
 <form [formGroup]="filmForm" (submit)="submit()">
 
   <mat-form-field>
-    <mat-label>Titre</mat-label>
-    <input matInput type="text" placeholder="Ex : Brice de Nice" name="titre" formControlName="titre"/>
-    <mat-error *ngIf="filmForm.get('titre').errors?.required">Ce champ est obligatoire</mat-error>
-    <mat-error *ngIf="filmForm.get('titre').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('titre').errors?.minlength.requiredLength}} caractères</mat-error>
-    <mat-error *ngIf="filmForm.get('titre').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('titre').errors?.maxlength.requiredLength}} caractères</mat-error>  
+    <mat-label>{{'films.form.fields.title.label' | translate}}</mat-label>
+    <input matInput type="text" [placeholder]="'films.form.fields.title.placeholder' | translate" name="titre" formControlName="titre"/>
+    <mat-error *ngIf="filmForm.get('titre').errors?.required">
+      {{'films.form.fields.title.errors.required' | translate}}
+    </mat-error>
+    <mat-error *ngIf="filmForm.get('titre').errors?.minlength">
+      {{'films.form.fields.title.errors.minlength' | translate:{size: filmForm.get('titre').errors?.minlength.requiredLength} }}
+    </mat-error>
+    <mat-error *ngIf="filmForm.get('titre').errors?.maxlength">
+      {{'films.form.fields.title.errors.maxlength' | translate:{size: filmForm.get('titre').errors?.maxlength.requiredLength} }}
+    </mat-error>  
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Description</mat-label>
-    <textarea matInput type="text" placeholder="Ex : Brice de Nice est un film francais..." name="description" formControlName="description"></textarea>
-    <mat-error *ngIf="filmForm.get('description').errors?.required">Ce champ est obligatoire</mat-error>
-    <mat-error *ngIf="filmForm.get('description').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('description').errors?.minlength.requiredLength}} caractères</mat-error>
-    <mat-error *ngIf="filmForm.get('description').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('description').errors?.maxlength.requiredLength}} caractères</mat-error>  
+    <mat-label>{{'films.form.fields.description.label' | translate}}</mat-label>
+    <textarea matInput type="text" [placeholder]="'films.form.fields.description.placeholder' | translate" name="description" formControlName="description"></textarea>
+    <mat-error *ngIf="filmForm.get('description').errors?.required">
+      {{'films.form.fields.description.errors.required' | translate}}
+    </mat-error>
+    <mat-error *ngIf="filmForm.get('description').errors?.minlength">
+      {{'films.form.fields.title.errors.minlength' | translate:{size: filmForm.get('description').errors?.minlength.requiredLength} }}
+    </mat-error>
+    <mat-error *ngIf="filmForm.get('description').errors?.maxlength">
+      {{'films.form.fields.title.errors.maxlength' | translate:{size: filmForm.get('description').errors?.maxlength.requiredLength} }}
+    </mat-error>  
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Couverture</mat-label>
-    <input matInput type="text" placeholder="Ex : http://..." name="image" formControlName="image"/>
-    <mat-error *ngIf="filmForm.get('image').errors?.required">Ce champ est obligatoire</mat-error>
+    <mat-label>{{'films.form.fields.image.label' | translate}}</mat-label>
+    <input matInput type="text" [placeholder]="'films.form.fields.image.placeholder' | translate" name="image" formControlName="image"/>
+    <mat-error *ngIf="filmForm.get('image').errors?.required">
+      {{'films.form.fields.image.errors.required' | translate}}
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Sortie</mat-label>
-    <input matInput [matDatepicker]="picker" placeholder="Ex : http://..." name="sortie" formControlName="sortie">
+    <mat-label>{{'films.form.fields.release.label' | translate}}</mat-label>
+    <input matInput [matDatepicker]="picker" [placeholder]="'films.form.fields.release.placeholder' | translate" name="sortie" formControlName="sortie">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-    <mat-error *ngIf="filmForm.get('sortie').errors?.required">Ce champ est obligatoire</mat-error>
+    <mat-error *ngIf="filmForm.get('sortie').errors?.required">{{'films.form.fields.release.errors.required' | translate}}</mat-error>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Sauver</button>
+  <button mat-raised-button color="primary" type="submit">
+    {{'films.form.submit' | translate}}
+  </button>
 </form>

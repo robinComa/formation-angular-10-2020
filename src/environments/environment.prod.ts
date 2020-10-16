@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'http://localhost:3001',
+  api: 'https://my-json-server.typicode.com/robinComa/formation-angular-10-2020',
 };
