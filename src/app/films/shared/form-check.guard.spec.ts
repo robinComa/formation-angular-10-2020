@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 import { FormCheckGuard } from './form-check.guard';
 
@@ -7,7 +8,8 @@ describe('FormCheckGuard', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [FormCheckGuard]
+      providers: [FormCheckGuard],
+      imports: [MaterialModule]
     });
     guard = TestBed.inject(FormCheckGuard);
   });

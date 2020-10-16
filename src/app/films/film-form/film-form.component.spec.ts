@@ -1,6 +1,10 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FilmService } from '../shared/film.service';
 import { FormCheckGuard } from '../shared/form-check.guard';
 
@@ -14,7 +18,14 @@ describe('FilmFormComponent', () => {
     await TestBed.configureTestingModule({
       providers: [FilmService, FormCheckGuard],
       declarations: [ FilmFormComponent ],
-      imports: [RouterTestingModule, HttpClientTestingModule]
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        MaterialModule,
+        MatNativeDateModule,
+        NoopAnimationsModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
   });

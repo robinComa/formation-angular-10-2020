@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 import { TruncatePipe } from '../../shared/truncate.pipe';
 
 import { FilmItemComponent } from './film-item.component';
@@ -9,7 +11,8 @@ describe('FilmItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilmItemComponent, TruncatePipe ]
+      declarations: [ FilmItemComponent, TruncatePipe ],
+      imports: [MaterialModule, TranslateModule.forRoot()]
     })
     .compileComponents();
   });
