@@ -13,12 +13,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './shared/material/material.module';
 import { LocaleService } from './shared/locale.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 registerLocaleData(localeFr, 'fr');
 registerLocaleData(localeEn, 'en');
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 export function LocaleFactory(localeService: LocaleService): string {
@@ -44,7 +46,8 @@ export function LocaleFactory(localeService: LocaleService): string {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     LocaleService,
