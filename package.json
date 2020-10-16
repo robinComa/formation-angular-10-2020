@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href /app/dist/app/",
+    "build": "ng build --prod --base-href /formation-angular-10-2020/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

@@ -1,0 +1,45 @@
+stages:
+  - check
+  - test
+  - build
+  - deploy
+
+lint:
+  stage: check
+  image: node:12.4.0
+  script:
+    - npm ci --silent
+    - npm run lint
+
+unit:
+  stage: test
+  image: trion/ng-cli-karma
+  script:
+    - npm ci --silent
+    - npm run test
+
+build:
+  stage: build
+  image: node:12.4.0
+  script:
+    - npm install --silent
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+pages:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - mkdir public
+    - mv dist/app public
+  artifacts:
+    paths:
+      - public
+  environment:
+    name: prod
+    url: https://robinComa.gitlab.io/formation-angular-10-2020
+  only:
+    - master
