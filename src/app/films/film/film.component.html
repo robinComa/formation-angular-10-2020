@@ -1,5 +1,6 @@
 <mat-card>
   <mat-card-header>
+    <img mat-card-avatar [src]="film?.image"/>
     <mat-card-title>{{ film?.titre }}</mat-card-title>
     <mat-card-subtitle>{{film?.sortie | date:'MMMM yyyy'}}</mat-card-subtitle>
   </mat-card-header>

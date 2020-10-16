@@ -32,6 +32,9 @@ export class FilmFormComponent implements OnInit {
   }
 
   submit(): void {
+    if (this.filmForm.invalid) {
+      return;
+    }
     const film: Film = this.filmForm.value;
     film.sortie = (film.sortie as any as Date).getTime();
     if (this.isUpdate()) {
@@ -56,7 +59,7 @@ export class FilmFormComponent implements OnInit {
   private initForm(film: Film = {
     titre: '',
     description: '',
-    sortie: null,
+    sortie: Date.now(),
     image: ''
   }): void {
     this.formCheckGuard.setFormComplete(false);
