@@ -15,16 +15,21 @@ import { FilmsRoutingModule } from './films-routing.module';
 import { FilmsResolverService } from './shared/films-resolver.service';
 import { FilmFormComponent } from './film-form/film-form.component';
 import { FormCheckGuard } from './shared/form-check.guard';
+import { MaterialModule } from '../shared/material/material.module';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ConfirmExitComponent } from './shared/confirm-exit/confirm-exit.component';
 
 @NgModule({
-  declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent, FilmFormComponent],
+  declarations: [FilmComponent, FilmListComponent, FirstWordBoldDirective, TruncatePipe, FilmItemComponent, FilmFormComponent, ConfirmExitComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
     FilmsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule,
+    MatNativeDateModule
   ],
   exports: [FilmComponent, FilmListComponent],
   providers: [

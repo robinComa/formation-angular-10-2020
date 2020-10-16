@@ -7,4 +7,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
+  setLanguage(lang: string): void {
+    console.log(lang);
+  }
+
 }

@@ -1,20 +1,34 @@
 <form [formGroup]="filmForm" (submit)="submit()">
 
-  <input type="text" placeholder="Titre" name="titre" formControlName="titre"/>
-  <p *ngIf="filmForm.get('titre').errors?.required">Ce champ est obligatoire</p>
-  <p *ngIf="filmForm.get('titre').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('titre').errors?.minlength.requiredLength}} caractères</p>
-  <p *ngIf="filmForm.get('titre').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('titre').errors?.maxlength.requiredLength}} caractères</p>
+  <mat-form-field>
+    <mat-label>Titre</mat-label>
+    <input matInput type="text" placeholder="Ex : Brice de Nice" name="titre" formControlName="titre"/>
+    <mat-error *ngIf="filmForm.get('titre').errors?.required">Ce champ est obligatoire</mat-error>
+    <mat-error *ngIf="filmForm.get('titre').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('titre').errors?.minlength.requiredLength}} caractères</mat-error>
+    <mat-error *ngIf="filmForm.get('titre').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('titre').errors?.maxlength.requiredLength}} caractères</mat-error>  
+  </mat-form-field>
 
-  <input type="url" placeholder="Couverture" name="image" formControlName="image"/>
-  <p *ngIf="filmForm.get('image').errors?.required">Ce champ est obligatoire</p>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput type="text" placeholder="Ex : Brice de Nice est un film francais..." name="description" formControlName="description"></textarea>
+    <mat-error *ngIf="filmForm.get('description').errors?.required">Ce champ est obligatoire</mat-error>
+    <mat-error *ngIf="filmForm.get('description').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('description').errors?.minlength.requiredLength}} caractères</mat-error>
+    <mat-error *ngIf="filmForm.get('description').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('description').errors?.maxlength.requiredLength}} caractères</mat-error>  
+  </mat-form-field>
 
-  <input type="text" placeholder="Description" name="description" formControlName="description"/>
-  <p *ngIf="filmForm.get('description').errors?.required">Ce champ est obligatoire</p>
-  <p *ngIf="filmForm.get('description').errors?.minlength">Ce champ doit avoir au moins {{filmForm.get('description').errors?.minlength.requiredLength}} caractères</p>
-  <p *ngIf="filmForm.get('description').errors?.maxlength">Ce champ doit avoir au plus {{filmForm.get('description').errors?.maxlength.requiredLength}} caractères</p>
+  <mat-form-field>
+    <mat-label>Couverture</mat-label>
+    <input matInput type="text" placeholder="Ex : http://..." name="image" formControlName="image"/>
+    <mat-error *ngIf="filmForm.get('image').errors?.required">Ce champ est obligatoire</mat-error>
+  </mat-form-field>
 
-  <input type="number" placeholder="Sortie" name="sortie" formControlName="sortie"/>
-  <p *ngIf="filmForm.get('sortie').errors?.required">Ce champ est obligatoire</p>
+  <mat-form-field>
+    <mat-label>Sortie</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="Ex : http://..." name="sortie" formControlName="sortie">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="filmForm.get('sortie').errors?.required">Ce champ est obligatoire</mat-error>
+  </mat-form-field>
 
-  <button type="submit" [disabled]="!filmForm.valid">Sauver</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!filmForm.valid">Sauver</button>
 </form>

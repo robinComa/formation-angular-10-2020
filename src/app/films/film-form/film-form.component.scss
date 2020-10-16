@@ -2,7 +2,11 @@ form {
   display: flex;
   flex-direction: column;
 
-  p {
-    color: red;
+  mat-form-field {
+    margin-bottom: 1rem;
+  }
+
+  textarea {
+    height: 100px;
   }
 }

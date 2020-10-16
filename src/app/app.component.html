@@ -1,9 +1,22 @@
-<h1>Bibliothèque</h1>
+<mat-toolbar color="primary">
+  <a mat-icon-button routerLink="/">
+    <mat-icon>home</mat-icon>
+  </a>
+  <span>Vidéothèque</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>language</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="setLanguage('fr')">
+      Francais
+    </button>
+    <button mat-menu-item (click)="setLanguage('en')">
+      Anglais
+    </button>
+  </mat-menu>
+</mat-toolbar>
 
-<p>Bienvenue sur ma bibliothèque</p>
-
-<a routerLink="/">Accueil</a>
-
-<hr/>
-
-<router-outlet></router-outlet>
+<main>
+  <router-outlet></router-outlet>
+</main>

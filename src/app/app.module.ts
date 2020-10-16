@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { MaterialModule } from './shared/material/material.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -18,7 +20,8 @@ registerLocaleData(localeFr, 'fr');
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [{
     provide: LOCALE_ID,

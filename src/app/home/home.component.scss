@@ -1,0 +1,15 @@
+:host {
+  background-image: url(https://images.pexels.com/photos/3131971/pexels-photo-3131971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  min-height: 400px;
+}
+
+mat-action-list {
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+  width: 100%;
+  a {
+    text-decoration: none;
+  }
+}

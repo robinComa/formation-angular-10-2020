@@ -1,6 +1,19 @@
-<img width="30px" [src]="film.image"/>
-<h3>{{film.titre}}</h3>
-<p>{{film.description | truncate: 10}}</p>
-<a [routerLink]="film.id">Voir</a>
-<a [routerLink]="['form', film.id]">Modifier</a>
-<button (click)="delete()">Supprimer</button>
+<mat-list-item role="listitem">
+  <img matListAvatar [src]="film.image">
+  <h3 matLine> {{film.titre}} </h3>
+  <p matLine> {{film.description | truncate: 50}}</p>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+ </button>
+ <mat-menu #menu="matMenu">
+  <a mat-menu-item [routerLink]="film.id">
+    Voir
+  </a>
+  <a mat-menu-item [routerLink]="['form', film.id]">
+    Modifer
+  </a>
+  <button mat-menu-item (click)="delete()">
+    Supprimer
+  </button>
+</mat-menu>
+</mat-list-item>

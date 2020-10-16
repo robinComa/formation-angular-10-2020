@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CanDeactivate } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { ConfirmExitComponent } from './confirm-exit/confirm-exit.component';
 
 @Injectable()
 export class FormCheckGuard implements CanDeactivate<boolean> {
 
   private formComplete = true;
 
-  canDeactivate(): boolean {
+  constructor(private dialog: MatDialog) { }
+
+  canDeactivate(): Observable<boolean> {
     if (this.formComplete) {
-      return true;
+      return of(true);
     } else {
-      return window.confirm('Est ce que tu es sur ?');
+      const dialogRef = this.dialog.open(ConfirmExitComponent);
+      return dialogRef.afterClosed();
     }
   }
 

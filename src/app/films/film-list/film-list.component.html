@@ -1,9 +1,8 @@
-<h2>Liste des films</h2>
+<mat-list role="list">
+  <div mat-subheader>Liste des films</div>
+  <app-film-item *ngFor="let f of films" [film]="f" (deleteEvent)="delete($event)"></app-film-item>
+</mat-list>
 
-<a routerLink="form">Créer un film</a>
-
-<ul>
-  <li *ngFor="let f of films">
-    <app-film-item [film]="f" (deleteEvent)="delete($event)"></app-film-item>
-  </li>
-</ul>
+<a routerLink="form" mat-fab color="accent">
+  <mat-icon>add</mat-icon>
+</a>

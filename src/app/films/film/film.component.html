@@ -1,4 +1,10 @@
-<h1>{{ film?.titre }}</h1>
-<img width="100px" [src]="film?.image"/>
-<p>{{film?.sortie | date:'MMMM yyyy'}}</p>
-<p>{{ film?.description }}</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ film?.titre }}</mat-card-title>
+    <mat-card-subtitle>{{film?.sortie | date:'MMMM yyyy'}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="film?.image"/>
+  <mat-card-content>
+    <p>{{ film?.description }}</p>
+  </mat-card-content>
+</mat-card>

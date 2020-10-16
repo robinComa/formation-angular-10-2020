@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Film } from '../shared/film';
 import { FilmService } from '../shared/film.service';
@@ -18,7 +19,8 @@ export class FilmFormComponent implements OnInit {
     private filmService: FilmService,
     private router: Router,
     private formCheckGuard: FormCheckGuard,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -31,17 +33,20 @@ export class FilmFormComponent implements OnInit {
 
   submit(): void {
     const film: Film = this.filmForm.value;
+    film.sortie = (film.sortie as any as Date).getTime();
     if (this.isUpdate()) {
-      this.filmService.update(film).subscribe(() => {
-        this.formCheckGuard.setFormComplete(true);
-        this.router.navigate(['films', film.id]);
-      });
+      this.filmService.update(film).subscribe(() => this.afterSave(film));
     } else {
-      this.filmService.create(film).subscribe((newFilm: Film) => {
-        this.formCheckGuard.setFormComplete(true);
-        this.router.navigate(['films', newFilm.id]);
-      });
+      this.filmService.create(film).subscribe((newFilm: Film) => this.afterSave(newFilm));
     }
+  }
+
+  private afterSave(film: Film): void {
+    this.formCheckGuard.setFormComplete(true);
+    this.router.navigate(['films', film.id]);
+    this.snackBar.open('Film sauvegardé !', null, {
+      duration: 2000,
+    });
   }
 
   private isUpdate(): boolean {
@@ -59,7 +64,7 @@ export class FilmFormComponent implements OnInit {
       id: new FormControl(film.id),
       titre: new FormControl(film.titre, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       description: new FormControl(film.description, [Validators.required, Validators.minLength(10), Validators.maxLength(1000)]),
-      sortie: new FormControl(film.sortie, [Validators.required]),
+      sortie: new FormControl(new Date(film.sortie), [Validators.required]),
       image: new FormControl(film.image, [Validators.required])
     });
   }
