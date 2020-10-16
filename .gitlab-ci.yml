@@ -21,10 +21,10 @@ unit:
   script:
     - npm ci --silent
     - npm run test
-    only:
-      - branches
-    except:
-      - master
+  only:
+    - branches
+  except:
+    - master
 
 build:
   stage: build
